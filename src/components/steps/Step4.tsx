@@ -10,14 +10,15 @@ interface Step4Props {
   onDownload: () => void;
 }
 
-export const Step4: React.FC<Step4Props> = ({
-                                              projectName,
-                                              architecture,
-                                              packageManager,
-                                              buildTool,
-                                              onBack,
-                                              onDownload,
-                                            }) => {
+export const Step4: React.FC<Step4Props> = (
+  {
+    projectName,
+    architecture,
+    packageManager,
+    buildTool,
+    onBack,
+    onDownload,
+  }) => {
   return (
     <StepLayout>
       <h2 className="text-xl font-semibold">¡Tu proyecto está listo! 🎉</h2>
