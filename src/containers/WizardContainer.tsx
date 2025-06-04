@@ -1,7 +1,6 @@
 import {useState} from "react";
 import {Step1} from "../components/steps/Step1";
 import {Step2} from "../components/steps/Step2";
-import {Step3} from "../components/steps/Step3";
 import {Step4} from "../components/steps/Step4";
 import {SideInfoCard} from "../components/SideInfoCard";
 import {downloadProjectZip} from "@/services/downloadZip";
@@ -10,8 +9,8 @@ export const WizardContainer: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [projectName, setProjectName] = useState("");
   const [selectedArchitecture, setSelectedArchitecture] = useState("");
-  const [packageManager, setPackageManager] = useState("pnpm");
-  const [buildTool, setBuildTool] = useState("vite");
+  const packageManager = "npm";
+  const buildTool = "webpack";
 
   const handleNext = () => setCurrentStep((prev) => prev + 1);
   const handleBack = () => setCurrentStep((prev) => prev - 1);
@@ -36,17 +35,6 @@ export const WizardContainer: React.FC = () => {
           />
         );
       case 2:
-        return (
-          <Step3
-            packageManager={packageManager}
-            setPackageManager={setPackageManager}
-            buildTool={buildTool}
-            setBuildTool={setBuildTool}
-            onNext={handleNext}
-            onBack={handleBack}
-          />
-        );
-      case 3:
         return (
           <Step4
             projectName={projectName}

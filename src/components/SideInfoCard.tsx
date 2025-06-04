@@ -16,12 +16,12 @@ const stepText: Record<number, { title: string; description: string }> = {
     description:
       "Escoge cómo estará organizada tu app: ¿prefieres algo simple como MVC o más escalable como Arquitectura Limpia?",
   },
+  // 2: {
+  //   title: "Package Manager y Herramienta de Build",
+  //   description:
+  //     "Elige tu gestor de paquetes favorito y la herramienta de build. Puedes dejarlo por defecto si no estás seguro.",
+  // },
   2: {
-    title: "Package Manager y Herramienta de Build",
-    description:
-      "Elige tu gestor de paquetes favorito y la herramienta de build. Puedes dejarlo por defecto si no estás seguro.",
-  },
-  3: {
     title: "¡Descarga lista!",
     description:
       "Tu proyecto está armado y listo para descargar como un .zip.\n¡Hora de empezar a construir!",

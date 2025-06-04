@@ -14,8 +14,8 @@ export const Step4: React.FC<Step4Props> = (
   {
     projectName,
     architecture,
-    packageManager,
-    buildTool,
+    // packageManager,
+    // buildTool,
     onBack,
     onDownload,
   }) => {
@@ -27,8 +27,8 @@ export const Step4: React.FC<Step4Props> = (
       <div className="bg-muted/40 p-4 rounded-md text-sm space-y-2">
         <p><strong>Nombre del proyecto:</strong> {projectName}</p>
         <p><strong>Arquitectura:</strong> {architecture}</p>
-        <p><strong>Package Manager:</strong> {packageManager}</p>
-        <p><strong>Herramienta de Build:</strong> {buildTool}</p>
+        {/*<p><strong>Package Manager:</strong> {packageManager}</p>*/}
+        {/*<p><strong>Herramienta de Build:</strong> {buildTool}</p>*/}
       </div>
 
       <div className="flex justify-between pt-4">
