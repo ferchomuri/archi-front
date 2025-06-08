@@ -23,7 +23,7 @@ export const Step2: React.FC<Step2Props> = ({selectedArchitecture, onSelect, onN
             key={arch.id}
             onClick={() => onSelect(arch.id)}
             className={`w-full p-4 text-left border rounded-md transition ${
-              selectedArchitecture === arch.id ? "border-primary bg-primary/10" : "hover:border-muted"
+              selectedArchitecture === arch.id ? "border-[#1f8ac0] bg-[#1f8ac0]/10" : "hover:border-muted"
             }`}
           >
             <p className="font-semibold">{arch.name}</p>

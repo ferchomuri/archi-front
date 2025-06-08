@@ -34,12 +34,12 @@ const renderAllInformation = (currentStep: number) => {
       {Object.entries(stepText).map(([step, content]) => (
         <div key={step} className="mb-4">
           <h3 className={clsx(
-            step === String(currentStep) ? "text-white" : "text-muted-foreground",
+            step === String(currentStep) ? "text-white" : "text-gray-500",
             "text-lg font-semibold")}>
             {content.title}
           </h3>
-          <p className={clsx(step === String(currentStep) ? "text-white" : "text-muted-foreground",
-            "text-sm text-muted-foreground whitespace-pre-line")}>
+          <p className={clsx(step === String(currentStep) ? "text-white" : "text-gray-500",
+            "text-sm whitespace-pre-line")}>
             {content.description}
           </p>
         </div>
@@ -51,13 +51,13 @@ const renderAllInformation = (currentStep: number) => {
 export const SideInfoCard: React.FC<SideInfoCardProps> = ({currentStep}) => {
 
   return (
-    <Card className="bg-black text-white w-80 hidden md:block md:h-[70vh]">
+    <Card className="bg-[#104c91] text-white w-80 hidden md:block md:h-[70vh]">
       <div className="flex flex-col h-full">
         <div className="flex-1 overflow-y-auto">
           {renderAllInformation(currentStep)}
         </div>
         <div className="p-4 border-t border-white/20">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm">
             Aquí encontrarás información sobre cada paso del proceso de creación de tu proyecto.
           </p>
         </div>
