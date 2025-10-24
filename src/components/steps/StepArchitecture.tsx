@@ -13,7 +13,7 @@ const architectures = [
   {id: "mvc", name: "MVC", description: "Modelo-Vista-Controlador, patrón clásico y simple."},
 ];
 
-export const Step2: React.FC<Step2Props> = ({selectedArchitecture, onSelect, onNext, onBack}) => {
+export const StepArchitecture: React.FC<Step2Props> = ({selectedArchitecture, onSelect, onNext, onBack}) => {
   return (
     <StepLayout>
       <h2 className="text-xl font-semibold">Selecciona una arquitectura</h2>

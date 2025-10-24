@@ -1,7 +1,7 @@
 import {Button} from "../ui/button";
 import {StepLayout} from "./StepLayout";
 
-interface Step3Props {
+interface StepBuilderPackageProps {
   packageManager: string;
   setPackageManager: (value: string) => void;
   buildTool: string;
@@ -13,14 +13,14 @@ interface Step3Props {
 const packageManagers = ["pnpm", "npm", "yarn"];
 const buildTools = ["vite", "webpack"];
 
-export const Step3: React.FC<Step3Props> = ({
-                                              packageManager,
-                                              setPackageManager,
-                                              buildTool,
-                                              setBuildTool,
-                                              onNext,
-                                              onBack,
-                                            }) => {
+export const StepBuilderPackage: React.FC<StepBuilderPackageProps> = ({
+                                                                        packageManager,
+                                                                        setPackageManager,
+                                                                        buildTool,
+                                                                        setBuildTool,
+                                                                        onNext,
+                                                                        onBack,
+                                                                      }) => {
   return (
     <StepLayout>
       <h2 className="text-xl font-semibold">Configuración opcional</h2>

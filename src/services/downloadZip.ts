@@ -2,9 +2,10 @@ export async function downloadProjectZip(config: {
   projectName: string;
   architecture: string;
   packageManager: string;
-  buildTool: string;
+  buildTool: string
+  language: string;
 }) {
-  const response = await fetch("http://localhost:8000/api/generate-structure", {
+  const response = await fetch("http://localhost:8001/api/v1/download-structure", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

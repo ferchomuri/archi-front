@@ -8,7 +8,7 @@ interface Step1Props {
   onNext: () => void;
 }
 
-export const Step1: React.FC<Step1Props> = ({projectName, setProjectName, onNext}) => {
+export const StepName: React.FC<Step1Props> = ({projectName, setProjectName, onNext}) => {
   return (
     <StepLayout>
       <h2 className="text-xl font-semibold">¿Cómo se llamará tu proyecto?</h2>

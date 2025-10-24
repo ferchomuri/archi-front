@@ -1,7 +1,7 @@
 import {useState} from "react";
-import {Step1} from "../components/steps/Step1";
-import {Step2} from "../components/steps/Step2";
-import {Step4} from "../components/steps/Step4";
+import {StepName} from "../components/steps/StepName.tsx";
+import {StepArchitecture} from "../components/steps/StepArchitecture.tsx";
+import {StepDownload} from "../components/steps/StepDownload.tsx";
 import {SideInfoCard} from "../components/SideInfoCard";
 import {downloadProjectZip} from "@/services/downloadZip";
 
@@ -9,6 +9,7 @@ export const WizardContainer: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [projectName, setProjectName] = useState("");
   const [selectedArchitecture, setSelectedArchitecture] = useState("");
+  const [downloading, setDownloading] = useState(false);
   const packageManager = "npm";
   const buildTool = "webpack";
 
@@ -19,7 +20,7 @@ export const WizardContainer: React.FC = () => {
     switch (currentStep) {
       case 0:
         return (
-          <Step1
+          <StepName
             projectName={projectName}
             setProjectName={setProjectName}
             onNext={handleNext}
@@ -27,7 +28,7 @@ export const WizardContainer: React.FC = () => {
         );
       case 1:
         return (
-          <Step2
+          <StepArchitecture
             selectedArchitecture={selectedArchitecture}
             onSelect={setSelectedArchitecture}
             onNext={handleNext}
@@ -36,20 +37,29 @@ export const WizardContainer: React.FC = () => {
         );
       case 2:
         return (
-          <Step4
+          <StepDownload
             projectName={projectName}
             architecture={selectedArchitecture}
             packageManager={packageManager}
             buildTool={buildTool}
             onBack={handleBack}
-            onDownload={() =>
-              downloadProjectZip({
-                projectName,
-                architecture: selectedArchitecture,
-                packageManager,
-                buildTool,
-              })
-            }
+            onDownload={async () => {
+              try {
+                setDownloading(true);
+                await downloadProjectZip({
+                  projectName,
+                  architecture: selectedArchitecture,
+                  language: "react",
+                  packageManager,
+                  buildTool,
+                });
+              } catch (err) {
+                alert("Error al descargar el proyecto" + (err instanceof Error ? `: ${err.message}` : ""));
+              } finally {
+                setDownloading(false);
+              }
+            }}
+            isLoading={downloading}
           />
         );
       default:

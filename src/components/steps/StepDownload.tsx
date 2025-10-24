@@ -1,16 +1,18 @@
 import {Button} from "../ui/button";
 import {StepLayout} from "./StepLayout";
+import {Progress} from "../ui/progress";
 
-interface Step4Props {
+interface StepDownloadProps {
   projectName: string;
   architecture: string;
   packageManager: string;
   buildTool: string;
   onBack: () => void;
   onDownload: () => void;
+  isLoading?: boolean;
 }
 
-export const Step4: React.FC<Step4Props> = (
+export const StepDownload: React.FC<StepDownloadProps> = (
   {
     projectName,
     architecture,
@@ -18,6 +20,7 @@ export const Step4: React.FC<Step4Props> = (
     // buildTool,
     onBack,
     onDownload,
+    isLoading
   }) => {
   return (
     <StepLayout>
@@ -31,12 +34,20 @@ export const Step4: React.FC<Step4Props> = (
         {/*<p><strong>Herramienta de Build:</strong> {buildTool}</p>*/}
       </div>
 
+      {isLoading && (
+        <div className="space-y-2">
+          <p className="text-sm text-muted-foreground">Generando tu proyecto...</p>
+          <p className="text-sm text-muted-foreground">Esto puede tardar unos minutos, por favor espera.</p>
+          <Progress value={75}/>
+        </div>
+      )}
+
       <div className="flex justify-between pt-4">
         <Button variant="outline" onClick={onBack}>
           Anterior
         </Button>
-        <Button onClick={onDownload}>
-          Descargar .zip
+        <Button onClick={onDownload} disabled={isLoading}>
+          {isLoading ? "Descargando..." : "Descargar .zip"}
         </Button>
       </div>
     </StepLayout>
